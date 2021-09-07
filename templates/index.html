@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Web Scraping Mission To Mars</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+        <h2>Latest Mars News</h2>
+        <h4 class="media-heading">{{ mars.news_title }}</h4>
+        <p>{{ mars.news_paragraph }}</p>
+        <h2>Featured Mars Image</h2>
+        <img src="{{mars.featured_image | default('static/images/error.png', true) }}" class="img-responsive"
+            alt="Responsive image" />
+            {{mars.facts|safe}}
+        <!-- Start Hemispheres Section-->
+        <div class="row" id="mars-hemispheres">
+            <div class="page-header">
+                <h2 class="text-center">Mars Hemispheres</h2>
+            </div>
+            {% for hemisphere in mars.hemispheres %}
+            <div class="col-md-6">
+                <div class="thumbnail">
+                    <img src="{{hemisphere.image_url | default('static/images/error.png', true)}}" alt="...">
+                    <div class="caption">
+                        <h3>{{hemisphere.title}}</h3>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- End Hemispheres Section-->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
