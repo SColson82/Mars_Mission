@@ -1,3 +1,5 @@
+<!-- HTML template file -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,33 +14,54 @@
 
 <body>
     <div class="container">
-        <div class="jumbotron text-center">
-            <h1>Mission to Mars</h1>
-            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
-        </div>
-        <h2>Latest Mars News</h2>
-        <h4 class="media-heading">{{ mars.news_title }}</h4>
-        <p>{{ mars.news_paragraph }}</p>
-        <h2>Featured Mars Image</h2>
-        <img src="{{mars.featured_image | default('static/images/error.png', true) }}" class="img-responsive"
-            alt="Responsive image" />
-            {{mars.facts|safe}}
-        <!-- Start Hemispheres Section-->
-        <div class="row" id="mars-hemispheres">
-            <div class="page-header">
-                <h2 class="text-center">Mars Hemispheres</h2>
+        <div class="container">
+            <div class="jumbotron text-center" style="background-color: rgb(225, 231, 233); padding: auto;">
+                <h1>Mission to Mars</h1>
+                <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
             </div>
-            {% for hemisphere in mars.hemispheres %}
-            <div class="col-md-6">
-                <div class="thumbnail">
-                    <img src="{{hemisphere.image_url | default('static/images/error.png', true)}}" alt="...">
-                    <div class="caption">
-                        <h3>{{hemisphere.title}}</h3>
+        </div>
+        <div class="container-fluid" id="scraped-data">
+            <h4 class="card-title" id="font">Latest Mars News</h4>
+            <h5 class="media-heading">{{ mars.news_title }}</h5>
+            <p>{{ mars.news_paragraph }}</p>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-between">
+                <div class="col-xl-6">
+                    <h4>Featured Mars Image</h4>
+                    <img src="{{mars.featured_image | default('static/images/error.png', true) }}"
+                        class="img-responsive" alt="Responsive image">
+                </div>
+                <div class="col-xl-4">
+                    <div class="row" style="padding-left: 3%" ; id="mars-facts">
+                        <h5>Mars Facts</h5>
+                        <div class="table-responsive">
+                            {{mars.facts|safe}}
+                        </div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
+        <!-- Start Hemispheres Section-->
+        <div class="container-fluid">
+            <div class="row">
+                <h1 class="text-center">Hemispheres of Mars</h1>
+                <hr>
+                <br>
+                {% for hemisphere in mars.hemispheres %}
+                <div class="col-md-3 text-center">
+                    <div class="card text-center" style="width: auto; height: auto;">
+                        <img class="card-img-top text-center" id="scale_id" src="{{ hemisphere.image_url }}">
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-left" style="height: max-content;">{{ hemisphere.title }}</h4>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
         <!-- End Hemispheres Section-->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"

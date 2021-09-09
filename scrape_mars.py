@@ -1,9 +1,13 @@
+# Step 2- MongoDB and Flask Application
+
 # Dependencies
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 import datetime as dt
 
+
+# Convert Jupyter NB into Python Script
 def scrape_all():
 
     # Import Splinter and set the chromedriver path
@@ -49,11 +53,12 @@ def scrape_all():
 
     #Extract the Facts Table from the URL using pandas
     tables=pd.read_html(url)
-    df=tables[1]
-    df.columns = ['Description', 'Measurement']
+    df=tables[0]
+    df.columns = ['Description', 'Mars', 'Earth']
+    df.set_index('Description', inplace=True)
 
     # Convert Data back to HTML
-    html_table = df.to_html(classes = 'table table-striped')
+    html_table = df.to_html(classes="table table-striped table-bordered")
 
     # Visit USGS webpage for Mars hemispehere images
     url = "https://marshemispheres.com/"
