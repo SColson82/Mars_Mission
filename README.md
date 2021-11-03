@@ -9,3 +9,8 @@ Once we had read the news, we took a look at the latest Mars art and learned a f
 Finally, we received a geology lesson from https://marshemispheres.com/ and got some spectacular views of all the hemispheres of Mars! Now that I am ready to leave for my trip to Mars I think I need to take a short nap first! All of this exploration has me exhausted! Take a look at all that I learned today while I take a little rest!
 
 ![image](https://user-images.githubusercontent.com/83737584/132793505-f6ee3026-53d8-4232-b780-81cff5fd0b87.png)
+<hr>
+Contact:
+
+* https://www.linkedin.com/in/sharon-colson-515222210/
+* sharon.colson@gmail.com
