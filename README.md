@@ -12,5 +12,5 @@ Finally, we received a geology lesson from https://marshemispheres.com/ and got 
 <hr>
 Contact:
 
-* https://www.linkedin.com/in/sharon-colson-515222210/
+* https://www.linkedin.com/in/sharon-colson
 * sharon.colson@gmail.com
